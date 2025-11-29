@@ -1,0 +1,1281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Medcentra | Advanced Multi-Specialty Medical Center – UAE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="Medcentra is a premium multi-specialty medical center in the UAE offering family medicine, dental, pediatrics, dermatology, gynecology, orthopedics, diagnostics and more.">
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  >
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+  >
+  <style>
+    :root {
+      --med-primary:#0474D4;
+      --med-primary-soft:#E6F3FF;
+      --med-dark:#0C223A;
+      --med-accent:#00BFA6;
+      --med-border:#E5E9F2;
+      --med-bg:#F5F7FB;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+      "Segoe UI", sans-serif;
+      background-color: var(--med-bg);
+      color: var(--med-dark);
+      scroll-behavior: smooth;
+    }
+
+    .navbar-brand span.logo-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-left: 6px;
+      background: linear-gradient(135deg, var(--med-accent), var(--med-primary));
+    }
+
+    .navbar {
+      backdrop-filter: blur(16px);
+      background-color: rgba(255,255,255,0.9) !important;
+    }
+
+    .hero {
+      padding-top: 7rem;
+      padding-bottom: 5rem;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(4,116,212,0.18) 0, transparent 55%),
+        radial-gradient(circle at 90% 20%, rgba(0,191,166,0.20) 0, transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #f3f8ff 60%, #f5f7fb 100%);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      padding: .35rem .9rem;
+      border-radius: 999px;
+      background: rgba(4, 116, 212, 0.06);
+      color: var(--med-primary);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .hero-badge i {
+      font-size: 1rem;
+      color: var(--med-accent);
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 3vw + 1.2rem, 3.2rem);
+      font-weight: 700;
+      color: var(--med-dark);
+      line-height: 1.15;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(120deg, var(--med-primary), var(--med-accent));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      border-radius: 1.75rem;
+      box-shadow: 0 14px 45px rgba(12, 34, 58, 0.10);
+      border: 1px solid rgba(4,116,212,0.12);
+      padding: 1.75rem;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: .35rem .75rem;
+      font-size: .75rem;
+      font-weight: 500;
+      background-color: var(--med-primary-soft);
+      color: var(--med-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    .pill i {
+      font-size: .9rem;
+    }
+
+    .stat-card {
+      border-radius: 1.2rem;
+      border: 1px solid var(--med-border);
+      padding: 1.1rem 1.2rem;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+    }
+
+    .stat-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, var(--med-primary-soft), #ffffff);
+      color: var(--med-primary);
+      font-size: 1.1rem;
+    }
+
+    .section-padding {
+      padding-top: 4.5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--med-dark);
+    }
+
+    .section-subtitle {
+      max-width: 540px;
+      margin-inline: auto;
+      color: #5f6b80;
+      font-size: .98rem;
+    }
+
+    .tag-chip {
+      border-radius: 999px;
+      padding: .25rem .7rem;
+      border: 1px solid rgba(4,116,212,0.1);
+      font-size: .75rem;
+      color: #5f6b80;
+      background: #fff;
+    }
+
+    .service-card {
+      border-radius: 1.3rem;
+      padding: 1.6rem 1.4rem;
+      background: #ffffff;
+      border: 1px solid rgba(229,233,242,0.95);
+      box-shadow: 0 14px 40px rgba(12,34,58,0.06);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      height: 100%;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(4,116,212,0.4);
+      box-shadow: 0 18px 48px rgba(4,116,212,0.18);
+    }
+
+    .service-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--med-primary), var(--med-accent));
+      color: #ffffff;
+      font-size: 1.3rem;
+      margin-bottom: .9rem;
+    }
+
+    .badge-soft {
+      background-color: rgba(4,116,212,0.08);
+      color: var(--med-primary);
+      border-radius: 999px;
+      font-size: .75rem;
+      padding: .25rem .7rem;
+    }
+
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--med-accent);
+      box-shadow: 0 0 0 6px rgba(0,191,166,0.15);
+      margin-right: .7rem;
+    }
+
+    .doctor-card {
+      border-radius: 1.25rem;
+      background: #ffffff;
+      border: 1px solid var(--med-border);
+      box-shadow: 0 10px 30px rgba(12,34,58,0.06);
+      overflow: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .doctor-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #ffffff;
+      box-shadow: 0 10px 25px rgba(12,34,58,0.25);
+      margin-top: -45px;
+    }
+
+    .doctor-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .insurance-card {
+      border-radius: 999px;
+      background:#ffffff;
+      border: 1px dashed rgba(4,116,212,0.25);
+      padding: .6rem 1.3rem;
+      font-size: .85rem;
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      margin:.25rem;
+      white-space:nowrap;
+    }
+
+    .contact-card {
+      border-radius:1.8rem;
+      background:#ffffff;
+      border:1px solid var(--med-border);
+      box-shadow:0 14px 40px rgba(12,34,58,0.08);
+      padding:2.2rem 2rem;
+    }
+
+    .footer {
+      background:#0B1524;
+      color:#c4ccdd;
+      padding-top:3rem;
+      padding-bottom:1.8rem;
+    }
+
+    .footer a {
+      color:#e5ecff;
+      text-decoration:none;
+      font-size:.9rem;
+    }
+
+    .footer a:hover {
+      text-decoration:underline;
+    }
+
+    .btn-primary {
+      background:linear-gradient(135deg,var(--med-primary),var(--med-accent));
+      border:none;
+      box-shadow:0 12px 30px rgba(4,116,212,0.35);
+    }
+
+    .btn-primary:hover {
+      background:linear-gradient(135deg,#035aa5,#009580);
+    }
+
+    .btn-outline-primary {
+      border-color:rgba(4,116,212,0.35);
+      color:var(--med-primary);
+    }
+
+    .btn-outline-primary:hover {
+      background:rgba(4,116,212,0.06);
+      color:var(--med-primary);
+      border-color:var(--med-primary);
+    }
+
+    .floating-whatsapp {
+      position:fixed;
+      right:1.4rem;
+      bottom:1.6rem;
+      z-index:1050;
+    }
+
+    .floating-whatsapp .btn {
+      border-radius:999px;
+      padding:.6rem 1rem;
+      box-shadow:0 12px 26px rgba(0,0,0,0.25);
+      font-weight:600;
+    }
+
+    @media (max-width: 991.98px) {
+      .hero {
+        padding-top: 6rem;
+      }
+      .hero-card {
+        margin-top: 2rem;
+      }
+      .hero-title {
+        font-size: 2.1rem;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .hero-card {
+        padding: 1.3rem 1.1rem;
+      }
+      .section-padding {
+        padding-top: 3.2rem;
+        padding-bottom: 3.2rem;
+      }
+      .footer {
+        text-align:center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
+      <span class="fs-4 text-primary">Medcentra</span>
+      <span class="logo-dot"></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Departments</a></li>
+        <li class="nav-item"><a class="nav-link" href="#doctors">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link" href="#insurance">Insurance</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-primary ms-lg-2 mt-2 mt-lg-0" href="#appointment">
+            <i class="bi bi-calendar2-check me-1"></i> Book Appointment
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="row align-items-center g-4 g-xl-5">
+      <div class="col-lg-6">
+        <div class="hero-badge mb-3">
+          <i class="bi bi-heart-pulse-fill"></i>
+          Medcentra • Multi-Specialty Care in UAE
+        </div>
+        <h1 class="hero-title mb-3">
+          Precise care for your<br>
+          <span class="hero-highlight">everyday health & emergencies.</span>
+        </h1>
+        <p class="text-muted mb-4">
+          Medcentra brings together experienced specialists, advanced diagnostics and
+          warm hospitality under one roof – so your family gets the right care, at the
+          right time, every time.
+        </p>
+
+        <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+          <a href="#appointment" class="btn btn-primary btn-lg">
+            Book a Doctor Visit
+          </a>
+          <a href="#services" class="btn btn-outline-primary btn-lg">
+            View Departments
+          </a>
+        </div>
+
+        <div class="d-flex flex-wrap gap-3">
+          <div class="stat-card">
+            <span class="stat-icon">
+              <i class="bi bi-person-heart"></i>
+            </span>
+            <div>
+              <div class="fw-bold">50+ Specialists</div>
+              <div class="small text-muted">Globally trained & licensed</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">
+              <i class="bi bi-clock-history"></i>
+            </span>
+            <div>
+              <div class="fw-bold">Extended Hours</div>
+              <div class="small text-muted">Walk-in & same-day slots</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-6">
+        <div class="hero-card">
+          <p class="pill mb-3">
+            <i class="bi bi-shield-check"></i>
+            DHA licensed • Insurance accepted
+          </p>
+          <h5 class="mb-1">Need an appointment today?</h5>
+          <p class="text-muted mb-3 small">
+            Share your details and our patient care team will get back to you within 15 minutes
+            during working hours.
+          </p>
+
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label small">Full Name</label>
+                <input type="text" class="form-control" placeholder="Your name">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small">Mobile Number</label>
+                <input type="tel" class="form-control" placeholder="+971 5X XXX XXXX">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small">Preferred Date</label>
+                <input type="date" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small">Department</label>
+                <select class="form-select">
+                  <option selected>Select department</option>
+                  <option>Family Medicine</option>
+                  <option>Internal Medicine</option>
+                  <option>Pediatrics</option>
+                  <option>Obstetrics & Gynaecology</option>
+                  <option>Dental</option>
+                  <option>Orthopedics</option>
+                  <option>Dermatology</option>
+                  <option>ENT</option>
+                  <option>Physiotherapy</option>
+                  <option>Laboratory & Radiology</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label small">Concern / Symptoms (optional)</label>
+                <textarea class="form-control" rows="2"
+                          placeholder="Tell us briefly how we can help you"></textarea>
+              </div>
+              <div class="col-12 d-grid d-md-flex align-items-center mt-1">
+                <button type="submit" class="btn btn-primary me-md-3 mb-2 mb-md-0">
+                  <i class="bi bi-send-fill me-1"></i> Request Callback
+                </button>
+                <span class="small text-muted">
+                  Or call us directly on <span class="fw-semibold text-dark">+971-XX-XXXXXXX</span>
+                </span>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section-padding" id="about">
+  <div class="container">
+    <div class="row g-4 g-lg-5 align-items-center">
+      <div class="col-lg-5">
+        <div class="position-relative">
+          <div class="rounded-4 overflow-hidden shadow-lg">
+            <!-- Replace with your own clinic image -->
+            <img src="https://images.pexels.com/photos/7108385/pexels-photo-7108385.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                 class="img-fluid" alt="Medcentra Clinic">
+          </div>
+          <div class="position-absolute top-100 start-0 translate-middle-y bg-white rounded-4 shadow p-3 d-flex align-items-center gap-3">
+            <div class="timeline-dot"></div>
+            <div>
+              <div class="fw-semibold small">Accredited Multispecialty Center</div>
+              <div class="text-muted small">Following international safety & quality protocols.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <h2 class="section-title mb-3">
+          Medcentra – a single, trusted address for your family’s health.
+        </h2>
+        <p class="text-muted mb-3">
+          Medcentra is a modern healthcare destination built around one promise:
+          <span class="fw-semibold text-dark">your well-being comes first.</span>  
+          From preventive screenings and routine check-ups to complex multi-specialty care, our
+          team of experienced doctors deliver evidence-based treatment with a personal, human touch.
+        </p>
+        <p class="text-muted mb-3">
+          Our facility is designed for comfort – digitally enabled registration, separate waiting zones
+          for adults and children, on-site diagnostics and pharmacy, and dedicated care coordinators
+          to guide you at every step.
+        </p>
+
+        <div class="row g-3 mb-3">
+          <div class="col-sm-6">
+            <div class="d-flex">
+              <span class="timeline-dot"></span>
+              <div>
+                <div class="fw-semibold">Comprehensive specialties</div>
+                <div class="small text-muted">
+                  Family medicine, internal medicine, pediatrics, OB-GYN, dental, orthopedics,
+                  dermatology, ENT, physiotherapy & more.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="d-flex">
+              <span class="timeline-dot"></span>
+              <div>
+                <div class="fw-semibold">Diagnostics under one roof</div>
+                <div class="small text-muted">
+                  Fully equipped lab, radiology (X-ray, ultrasound), ECG and health check packages
+                  for all age groups.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span class="tag-chip"><i class="bi bi-check2-circle me-1 text-success"></i>DHA-licensed doctors</span>
+          <span class="tag-chip"><i class="bi bi-check2-circle me-1 text-success"></i>Most major insurances accepted</span>
+          <span class="tag-chip"><i class="bi bi-check2-circle me-1 text-success"></i>Arabic • English • Hindi & more</span>
+        </div>
+
+        <a href="#services" class="btn btn-outline-primary">
+          Explore Specialties <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES / DEPARTMENTS -->
+<section class="section-padding" id="services">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="badge-soft mb-2">
+        <i class="bi bi-hospital me-1"></i> Departments
+      </span>
+      <h2 class="section-title mb-2">Specialties at Medcentra</h2>
+      <p class="section-subtitle">
+        A multi-disciplinary team of doctors working together to diagnose, treat and prevent
+        illness – with personalized care plans crafted around your lifestyle and goals.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-people-heart"></i>
+          </div>
+          <h5 class="mb-1">Family Medicine</h5>
+          <p class="small text-muted mb-2">
+            Primary care for every stage of life – from routine check-ups to chronic disease
+            management and vaccinations.
+          </p>
+          <ul class="small text-muted ps-3 mb-0">
+            <li>Annual health check-ups</li>
+            <li>Diabetes & hypertension follow-up</li>
+            <li>Immunizations & travel advice</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-heart-pulse"></i>
+          </div>
+          <h5 class="mb-1">Internal Medicine</h5>
+          <p class="small text-muted mb-2">
+            Expert evaluation and management of complex adult medical conditions with
+            evidence-based protocols.
+          </p>
+          <ul class="small text-muted ps-3 mb-0">
+            <li>Cardio-metabolic risk assessment</li>
+            <li>Respiratory & endocrine disorders</li>
+            <li>Pre-operative clearance</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-emoji-smile"></i>
+          </div>
+          <h5 class="mb-1">Pediatrics & Neonatology</h5>
+          <p class="small text-muted mb-2">
+            Child-friendly spaces and specialist pediatricians for newborns, toddlers and teens.
+          </p>
+          <ul class="small text-muted ps-3 mb-0">
+            <li>Growth & development tracking</li>
+            <li>Childhood vaccination schedule</li>
+            <li>Allergy & asthma care</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-gender-female"></i>
+          </div>
+          <h5 class="mb-1">Obstetrics & Gynaecology</h5>
+          <p class="small text-muted mb-2">
+            Compassionate women’s health services covering routine care, pregnancy and
+            advanced gynecological concerns.
+          </p>
+          <ul class="small text-muted ps-3 mb-0">
+            <li>Antenatal & postnatal care</li>
+            <li>PCOS & hormonal evaluation</li>
+            <li>Screening for cervical & breast health</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-braces"></i>
+          </div>
+          <h5 class="mb-1">Dental & Orthodontics</h5>
+          <p class="small text-muted mb-2">
+            From routine cleaning to full-mouth rehabilitation and smile design with modern,
+            pain-controlled techniques.
+          </p>
+          <ul class="small text-muted ps-3 mb-0">
+            <li>Scaling, fillings & root-canal treatment</li>
+            <li>Braces & aligners</li>
+            <li>Crowns, veneers & implants</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-bandaid"></i>
+          </div>
+          <h5 class="mb-1">Orthopedics & Sports Medicine</h5>
+          <p class="small text-muted mb-2">
+            Comprehensive bone, joint and sports-injury care to get you back to pain-free
+            movement.
+          </p>
+          <ul class="small text-muted ps-3 mb-0">
+            <li>Back & neck pain clinics</li>
+            <li>Joint injections & fracture care</li>
+            <li>Sports injury rehabilitation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-droplet-half"></i>
+          </div>
+          <h5 class="mb-1">Dermatology & Aesthetics</h5>
+          <p class="small text-muted mb-2">
+            Medical and cosmetic dermatology for healthy, confident skin at every age.
+          </p>
+          <ul class="small text-muted ps-3 mb-0">
+            <li>Acne, pigmentation & hair fall</li>
+            <li>Anti-aging treatments</li>
+            <li>Laser & minimally invasive procedures</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-ear"></i>
+          </div>
+          <h5 class="mb-1">ENT (Ear, Nose & Throat)</h5>
+          <p class="small text-muted mb-2">
+            Specialist care for sinus, allergy and ENT conditions with endoscopic evaluation.
+          </p>
+          <ul class="small text-muted ps-3 mb-0">
+            <li>Sinusitis & allergy management</li>
+            <li>Ear infections & hearing issues</li>
+            <li>Throat & voice disorders</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-activity"></i>
+          </div>
+          <h5 class="mb-1">Physiotherapy & Rehabilitation</h5>
+          <p class="small text-muted mb-2">
+            Goal-based recovery programs designed to restore mobility and strength safely.
+          </p>
+          <ul class="small text-muted ps-3 mb-0">
+            <li>Post-surgical rehab</li>
+            <li>Neck, back & joint pain therapy</li>
+            <li>Sports & work-related injuries</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="bi bi-clipboard2-pulse"></i>
+          </div>
+          <h5 class="mb-1">Laboratory & Radiology</h5>
+          <p class="small text-muted mb-2">
+            Accurate and timely diagnostics with advanced equipment and strict quality checks.
+          </p>
+          <ul class="small text-muted ps-3 mb-0">
+            <li>Routine & advanced blood tests</li>
+            <li>Ultrasound & X-ray</li>
+            <li>Corporate & visa medicals</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY MEDCENTRA -->
+<section class="section-padding">
+  <div class="container">
+    <div class="row g-4 g-lg-5 align-items-center">
+      <div class="col-lg-6">
+        <h2 class="section-title mb-3">Why families choose Medcentra.</h2>
+        <p class="text-muted mb-3">
+          We understand that visiting a medical center can feel overwhelming. That’s why we’ve
+          designed Medcentra to be simple, transparent and reassuring – from your first phone call
+          to your final follow-up message.
+        </p>
+
+        <div class="mb-3">
+          <div class="d-flex mb-3">
+            <div class="stat-icon me-3">
+              <i class="bi bi-hospital"></i>
+            </div>
+            <div>
+              <div class="fw-semibold">Hospital-grade quality, clinic-level comfort</div>
+              <div class="small text-muted">
+                Advanced clinical protocols, digital medical records and a culture of continuous
+                quality audits keep you safe and informed.
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex mb-3">
+            <div class="stat-icon me-3">
+              <i class="bi bi-journal-check"></i>
+            </div>
+            <div>
+              <div class="fw-semibold">Coordinated care, not just appointments</div>
+              <div class="small text-muted">
+                From lab reports to specialist referrals, our care coordinators ensure your treatment
+                plan is connected across departments.
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex">
+            <div class="stat-icon me-3">
+              <i class="bi bi-wallet2"></i>
+            </div>
+            <div>
+              <div class="fw-semibold">Transparent pricing & insurance support</div>
+              <div class="small text-muted">
+                Clear estimates before procedures, direct billing with major insurers and dedicated
+                insurance desks for hassle-free approvals.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#appointment" class="btn btn-primary">
+          Plan your visit <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="contact-card">
+          <h5 class="mb-3">Walk-in hours & location</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="small text-uppercase text-muted">Location</div>
+              <div class="fw-semibold">Medcentra Medical Center</div>
+              <div class="small text-muted">
+                (Update with your exact address)<br>
+                Ras Al Khaimah / Dubai, UAE
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="small text-uppercase text-muted">Contact</div>
+              <div class="fw-semibold">+971-XX-XXXXXXX</div>
+              <div class="small text-muted">info@medcentra.ae</div>
+            </div>
+            <div class="col-md-6">
+              <div class="small text-uppercase text-muted">Weekdays</div>
+              <div class="small">
+                <span class="fw-semibold">08:00 AM – 10:00 PM</span><br>
+                (Last registration 09:30 PM)
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="small text-uppercase text-muted">Weekends</div>
+              <div class="small">
+                <span class="fw-semibold">09:00 AM – 09:00 PM</span><br>
+                Friday timings as per local guidelines
+              </div>
+            </div>
+          </div>
+
+          <hr class="my-3">
+
+          <div class="small mb-1 text-muted">Quick access</div>
+          <div class="d-flex flex-wrap gap-2 mb-2">
+            <span class="tag-chip"><i class="bi bi-geo-alt me-1 text-danger"></i>Get Directions</span>
+            <span class="tag-chip"><i class="bi bi-telephone-outbound me-1 text-success"></i>Call Reception</span>
+            <span class="tag-chip"><i class="bi bi-file-medical me-1 text-primary"></i>Corporate & Insurance Desk</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section class="section-padding bg-white" id="doctors">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="badge-soft mb-2">
+        <i class="bi bi-stethoscope me-1"></i> Our Doctors
+      </span>
+      <h2 class="section-title mb-2">Meet a few of our specialists</h2>
+      <p class="section-subtitle">
+        Medcentra brings together clinicians with international training, local experience and a
+        shared belief in patient-first care.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Doctor 1 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="doctor-card text-center p-3">
+          <div class="bg-light" style="height:120px;"></div>
+          <div class="d-flex justify-content-center">
+            <div class="doctor-avatar">
+              <img src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=800"
+                   alt="Doctor">
+            </div>
+          </div>
+          <div class="p-3 pt-4 flex-grow-1">
+            <h6 class="mb-1">Dr. Aisha Al Mansoori</h6>
+            <div class="small text-muted mb-1">Consultant Family Medicine</div>
+            <div class="small text-success mb-2">
+              <i class="bi bi-patch-check-fill me-1"></i>DHA Licensed • 12+ yrs
+            </div>
+            <p class="small text-muted mb-3">
+              Special interest in preventive health, chronic disease management and women’s wellness.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doctor 2 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="doctor-card text-center p-3">
+          <div class="bg-light" style="height:120px;"></div>
+          <div class="d-flex justify-content-center">
+            <div class="doctor-avatar">
+              <img src="https://images.pexels.com/photos/4225880/pexels-photo-4225880.jpeg?auto=compress&cs=tinysrgb&w=800"
+                   alt="Doctor">
+            </div>
+          </div>
+          <div class="p-3 pt-4 flex-grow-1">
+            <h6 class="mb-1">Dr. Rahul Menon</h6>
+            <div class="small text-muted mb-1">Specialist Orthopedic Surgeon</div>
+            <div class="small text-success mb-2">
+              <i class="bi bi-patch-check-fill me-1"></i>Fellowship in Sports Medicine
+            </div>
+            <p class="small text-muted mb-3">
+              Focus on minimally invasive procedures, sports injuries and joint preservation therapies.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doctor 3 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="doctor-card text-center p-3">
+          <div class="bg-light" style="height:120px;"></div>
+          <div class="d-flex justify-content-center">
+            <div class="doctor-avatar">
+              <img src="https://images.pexels.com/photos/7697726/pexels-photo-7697726.jpeg?auto=compress&cs=tinysrgb&w=800"
+                   alt="Doctor">
+            </div>
+          </div>
+          <div class="p-3 pt-4 flex-grow-1">
+            <h6 class="mb-1">Dr. Nour El Sayed</h6>
+            <div class="small text-muted mb-1">Specialist Obstetrics & Gynaecology</div>
+            <div class="small text-success mb-2">
+              <i class="bi bi-patch-check-fill me-1"></i>High-risk pregnancy care
+            </div>
+            <p class="small text-muted mb-3">
+              Providing compassionate care across fertility, pregnancy, childbirth and women’s health.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doctor 4 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="doctor-card text-center p-3">
+          <div class="bg-light" style="height:120px;"></div>
+          <div class="d-flex justify-content-center">
+            <div class="doctor-avatar">
+              <img src="https://images.pexels.com/photos/5452200/pexels-photo-5452200.jpeg?auto=compress&cs=tinysrgb&w=800"
+                   alt="Doctor">
+            </div>
+          </div>
+          <div class="p-3 pt-4 flex-grow-1">
+            <h6 class="mb-1">Dr. Ahmed Farouk</h6>
+            <div class="small text-muted mb-1">Specialist Dermatologist</div>
+            <div class="small text-success mb-2">
+              <i class="bi bi-patch-check-fill me-1"></i>Board Certified
+            </div>
+            <p class="small text-muted mb-3">
+              Treating complex skin conditions with a blend of medical expertise and aesthetic insight.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="#appointment" class="btn btn-outline-primary">
+        View full doctor directory
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE & TESTIMONIALS -->
+<section class="section-padding" id="insurance">
+  <div class="container">
+    <div class="row g-4 g-lg-5 align-items-center">
+      <div class="col-lg-6">
+        <span class="badge-soft mb-2">
+          <i class="bi bi-credit-card-2-front me-1"></i> Insurance Partners
+        </span>
+        <h2 class="section-title mb-2">We work with leading insurance providers.</h2>
+        <p class="text-muted mb-3">
+          Medcentra supports direct billing with most major insurance companies in the UAE.
+          Our approvals team helps you understand eligibility, pre-authorizations and any
+          co-pay before your visit.
+        </p>
+
+        <div class="mb-3">
+          <!-- Replace names with your actual panels -->
+          <div class="insurance-card">
+            <i class="bi bi-building-check"></i> Daman
+          </div>
+          <div class="insurance-card">
+            <i class="bi bi-building-check"></i> Thiqa
+          </div>
+          <div class="insurance-card">
+            <i class="bi bi-building-check"></i> AXA / GIG
+          </div>
+          <div class="insurance-card">
+            <i class="bi bi-building-check"></i> Oman Insurance
+          </div>
+          <div class="insurance-card">
+            <i class="bi bi-building-check"></i> MetLife
+          </div>
+          <div class="insurance-card">
+            <i class="bi bi-building-check"></i> NAS / Neuron
+          </div>
+        </div>
+
+        <p class="small text-muted mb-3">
+          Don’t see your provider on this list? Share a picture of your card on WhatsApp and
+          we’ll confirm coverage before scheduling your appointment.
+        </p>
+
+        <a href="#contact" class="btn btn-primary">
+          Check your insurance eligibility
+        </a>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="contact-card">
+          <h5 class="mb-3"><i class="bi bi-chat-square-quote me-1"></i> Patient stories</h5>
+
+          <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+              <div class="carousel-item active">
+                <p class="small text-muted mb-3">
+                  “From registration to consultation and lab tests, everything at Medcentra was
+                  smooth and well-coordinated. The doctors take time to listen and explain
+                  options in simple language.”
+                </p>
+                <div class="d-flex align-items-center">
+                  <div class="me-3">
+                    <div class="fw-semibold">Sara K.</div>
+                    <div class="small text-muted">Pediatric patient’s mother</div>
+                  </div>
+                  <div class="ms-auto text-warning">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <p class="small text-muted mb-3">
+                  “I visited for a back pain that would not settle for months. The orthopedist
+                  and physiotherapy team built a step-by-step plan. Within a few weeks I was
+                  back to normal routine.”
+                </p>
+                <div class="d-flex align-items-center">
+                  <div class="me-3">
+                    <div class="fw-semibold">Mohammed A.</div>
+                    <div class="small text-muted">Orthopedics & Physiotherapy</div>
+                  </div>
+                  <div class="ms-auto text-warning">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <p class="small text-muted mb-3">
+                  “Professional, clean and very organized clinic. Insurance approval was taken
+                  care of before my visit and I received my reports on WhatsApp the same day.”
+                </p>
+                <div class="d-flex align-items-center">
+                  <div class="me-3">
+                    <div class="fw-semibold">Lina R.</div>
+                    <div class="small text-muted">Health check package</div>
+                  </div>
+                  <div class="ms-auto text-warning">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button"
+                    data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button"
+                    data-bs-target="#testimonialCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPOINTMENT & CONTACT -->
+<section class="section-padding" id="appointment">
+  <div class="container">
+    <div class="row g-4 g-lg-5">
+      <div class="col-lg-6">
+        <h2 class="section-title mb-2">Plan your visit to Medcentra.</h2>
+        <p class="text-muted mb-3">
+          Share your details and our team will confirm the nearest available slot with your
+          preferred doctor or department. For urgent concerns, please call us directly.
+        </p>
+
+        <div class="contact-card" id="contact">
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label small">Full Name</label>
+                <input type="text" class="form-control" placeholder="Your full name">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small">Email Address</label>
+                <input type="email" class="form-control" placeholder="you@example.com">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small">Mobile Number</label>
+                <input type="tel" class="form-control" placeholder="+971 5X XXX XXXX">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small">Preferred Contact Channel</label>
+                <select class="form-select">
+                  <option>Call</option>
+                  <option>WhatsApp</option>
+                  <option>Email</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small">Department</label>
+                <select class="form-select">
+                  <option>Family Medicine</option>
+                  <option>Internal Medicine</option>
+                  <option>Pediatrics</option>
+                  <option>Obstetrics & Gynaecology</option>
+                  <option>Dental & Orthodontics</option>
+                  <option>Orthopedics</option>
+                  <option>Dermatology</option>
+                  <option>ENT</option>
+                  <option>Physiotherapy</option>
+                  <option>Health Check / Executive Screening</option>
+                  <option>Visa Medical / Corporate</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small">Preferred Date & Time</label>
+                <input type="datetime-local" class="form-control">
+              </div>
+              <div class="col-12">
+                <label class="form-label small">Message / Symptoms</label>
+                <textarea class="form-control" rows="3"
+                          placeholder="Briefly describe your concern, reports or referral (if any)."></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary w-100">
+                  Submit Appointment Request
+                </button>
+                <p class="small text-muted mt-2 mb-0">
+                  By submitting this form, you consent to Medcentra contacting you by phone,
+                  WhatsApp or email regarding your appointment.
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="ratio ratio-4x3 rounded-4 overflow-hidden shadow-sm mb-3">
+          <!-- Replace src with your clinic Google Maps embed URL -->
+          <iframe
+            src="https://maps.google.com/maps?q=Ras%20Al%20Khaimah&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div class="contact-card">
+          <h6 class="mb-2">For emergencies</h6>
+          <p class="small text-muted mb-2">
+            Medcentra is a medical center and does not replace hospital emergency services.
+            In case of a life-threatening emergency, please contact your nearest hospital or
+            dial the local emergency number immediately.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="tag-chip"><i class="bi bi-telephone-inbound me-1 text-danger"></i>Emergency Helpline</span>
+            <span class="tag-chip"><i class="bi bi-geo-alt me-1 text-danger"></i>Nearest ER Locator</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer mt-4">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h5 class="text-white mb-2">Medcentra</h5>
+        <p class="small">
+          A modern, multi-specialty medical center in the UAE – combining clinical excellence
+          with warm, patient-centric care.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h6 class="text-white mb-2">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li><a href="#about">About Medcentra</a></li>
+          <li><a href="#services">Departments</a></li>
+          <li><a href="#doctors">Doctors</a></li>
+          <li><a href="#appointment">Book Appointment</a></li>
+          <li><a href="#contact">Contact & Location</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 class="text-white mb-2">Contact</h6>
+        <p class="small mb-1">
+          Address line 1, Area / Community<br>
+          City, Emirate, UAE
+        </p>
+        <p class="small mb-1">
+          Phone: <a href="tel:+971XXXXXXXXX">+971-XX-XXXXXXX</a><br>
+          Email: <a href="mailto:info@medcentra.ae">info@medcentra.ae</a>
+        </p>
+        <div class="d-flex gap-2 mt-2">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-secondary border-opacity-25 my-3">
+
+    <div class="d-flex flex-wrap justify-content-between align-items-center small">
+      <span>© <span id="year"></span> Medcentra. All rights reserved.</span>
+      <span>Designed & Developed by <strong>Your Agency Name</strong></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp CTA -->
+<div class="floating-whatsapp">
+  <button class="btn btn-success d-flex align-items-center gap-2">
+    <i class="bi bi-whatsapp"></i>
+    <span class="d-none d-sm-inline">Chat on WhatsApp</span>
+  </button>
+</div>
+
+<!-- Bootstrap JS -->
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"></script>
+
+<script>
+  // auto year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
