@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProHealth UAE — Trusted Healthcare Management Services</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-beige:#EFE8DE;
+      --bg-beige-2:#F7F2EB;
+      --ink:#1E1A18;
+      --muted:#6A635F;
+      --choco:#2B2421;
+      --choco-2:#3A2F2B;
+      --orange:#E85B2A;
+      --sand:#D9C7B5;
+      --card:#FFFFFF;
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --radius-md:16px;
+      --shadow: 0 18px 60px rgba(12, 10, 9, .18);
+      --shadow-soft: 0 14px 40px rgba(12, 10, 9, .12);
+    }
+
+    html,body{height:100%;}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: var(--bg-beige);
+      color: var(--ink);
+    }
+
+    /* ---------- NAV ---------- */
+    .pro-nav-wrap{
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: transparent;
+    }
+    .pro-nav{
+      background: linear-gradient(90deg, var(--choco), var(--choco-2));
+      border-radius: 28px;
+      padding: 14px 16px;
+      box-shadow: var(--shadow-soft);
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      color:#fff; font-weight:800; letter-spacing:.5px;
+      text-decoration:none;
+    }
+    .brand-mark{
+      width:38px; height:38px; border-radius:12px;
+      background: var(--orange);
+      display:grid; place-items:center;
+      font-weight:900; color:#fff;
+      box-shadow: 0 10px 30px rgba(232, 91, 42, .35);
+    }
+    .nav-link{
+      color: rgba(255,255,255,.82) !important;
+      font-weight: 500;
+      padding: .6rem .65rem !important;
+      border-radius: 999px;
+    }
+    .nav-link:hover{ background: rgba(255,255,255,.08); }
+    .nav-link.active{ color: var(--orange) !important; background: rgba(232,91,42,.12); }
+
+    .btn-orange{
+      background: var(--orange);
+      border: none;
+      color:#fff;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-weight: 700;
+      box-shadow: 0 14px 35px rgba(232,91,42,.25);
+    }
+    .btn-orange:hover{ filter: brightness(.97); color:#fff; }
+
+    /* ---------- HERO ---------- */
+    .hero{
+      padding: 26px 0 70px;
+    }
+    .hero-card{
+      background: linear-gradient(120deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      background-color: var(--choco);
+      box-shadow: var(--shadow);
+      min-height: 560px;
+    }
+    .hero-inner{
+      padding: 54px 52px;
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      max-width: 760px;
+    }
+    .hero-eyebrow{
+      font-size: 16px;
+      opacity: .9;
+      margin-bottom: 18px;
+    }
+    .hero h1{
+      font-size: clamp(36px, 4.6vw, 64px);
+      line-height: 1.02;
+      font-weight: 850;
+      margin: 0 0 18px;
+    }
+    .hero h1 .accent{ color: var(--sand); font-weight: 850; }
+    .hero p.lead{
+      font-size: 18px;
+      opacity: .9;
+      max-width: 560px;
+    }
+    .btn-sand{
+      background: #D8C8B8;
+      color: #2B2421;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 22px;
+      font-weight: 750;
+    }
+    .btn-sand:hover{ filter: brightness(.98); }
+
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      z-index:1;
+    }
+    .hero-bg::before{
+      content:"";
+      position:absolute;
+      right:-120px;
+      top:-40px;
+      width: 760px;
+      height: 760px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), rgba(255,255,255,0) 55%);
+      filter: blur(0px);
+      opacity: .95;
+    }
+    .hero-bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 420px at 18% 15%, rgba(232,91,42,.12), transparent 60%),
+        radial-gradient(700px 360px at 86% 20%, rgba(255,255,255,.10), transparent 55%),
+        linear-gradient(90deg, rgba(0,0,0,.0), rgba(0,0,0,.18));
+      opacity: 1;
+    }
+    .hero-photo{
+      position:absolute;
+      right:0;
+      top:0;
+      width: 58%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .92;
+      mix-blend-mode: screen;
+      filter: contrast(1.05) saturate(1.05);
+    }
+    .hero-slider-arrow{
+      position:absolute;
+      top: 56%;
+      transform: translateY(-50%);
+      width: 48px; height:48px;
+      border-radius: 999px;
+      background: rgba(216,200,184,.95);
+      color:#2B2421;
+      display:grid; place-items:center;
+      z-index: 3;
+    }
+    .hero-slider-arrow.left{ left: 26px; }
+    .hero-slider-arrow.right{ right: 26px; }
+    .hero-slider-arrow i{ font-size: 20px; }
+
+    .hero-mini-card{
+      position:absolute;
+      right: 40px;
+      bottom: 40px;
+      width: min(460px, 90%);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 20px;
+      padding: 18px;
+      display:flex;
+      gap: 16px;
+      align-items:center;
+      z-index: 3;
+      backdrop-filter: blur(6px);
+    }
+    .hero-mini-card .mini-left{
+      flex:1;
+      padding: 18px 18px;
+      border-radius: 16px;
+      background: rgba(0,0,0,.22);
+    }
+    .hero-mini-card .mini-left .mini-title{
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 1.18;
+      color:#fff;
+      margin: 0;
+    }
+    .hero-mini-card .mini-right{
+      width: 110px;
+      height: 110px;
+      border-radius: 16px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.10);
+    }
+    .hero-mini-card img{ width:100%; height:100%; object-fit:cover; }
+
+    /* ---------- SECTION TAG ---------- */
+    .section-tag{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: .9px;
+      color: var(--orange);
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    .section-tag .dot{
+      width: 34px; height: 34px;
+      border-radius: 999px;
+      display:grid; place-items:center;
+      background: rgba(232,91,42,.14);
+      color: var(--orange);
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    /* ---------- SOLUTIONS ---------- */
+    .solutions{
+      background: var(--choco);
+      border-radius: var(--radius-xl);
+      padding: 60px 0 70px;
+      box-shadow: var(--shadow);
+      margin: 36px 0 0;
+    }
+    .solutions h2{
+      color:#fff;
+      font-weight: 850;
+      line-height: 1.05;
+      font-size: clamp(28px, 3.4vw, 48px);
+      margin: 0;
+    }
+    .solutions h2 span{ color: var(--sand); }
+    .btn-outline-soft{
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.9);
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 650;
+      background: rgba(255,255,255,.04);
+    }
+    .btn-outline-soft:hover{
+      background: rgba(255,255,255,.08);
+      color:#fff;
+    }
+
+    .solution-img-card{
+      border-radius: 20px;
+      overflow:hidden;
+      position: relative;
+      box-shadow: 0 18px 45px rgba(0,0,0,.30);
+      border: 1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.03);
+    }
+    .solution-img-card img{
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display:block;
+      filter: contrast(1.06) saturate(1.05);
+      opacity: .96;
+    }
+    .solution-icon{
+      position:absolute;
+      left: 24px;
+      bottom: 110px;
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      background: var(--bg-beige);
+      display:grid; place-items:center;
+      box-shadow: 0 14px 35px rgba(0,0,0,.25);
+      color: #0d3b36;
+      font-size: 26px;
+      font-weight: 900;
+    }
+
+    .solution-info{
+      padding: 22px 26px;
+      background: rgba(255,255,255,.04);
+    }
+
+    .solution-bottom{
+      background: #CDBEAE;
+      color:#2B2421;
+      padding: 28px 28px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    .solution-bottom.orange{
+      background: #C95A34;
+      color: #1d1410;
+    }
+    .solution-bottom h4{
+      font-weight: 850;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+    .solution-bottom p{
+      margin: 0 0 16px;
+      opacity: .9;
+    }
+    .solution-bottom a{
+      text-decoration:none;
+      font-weight: 800;
+      color: inherit;
+      display:inline-flex;
+      gap: 8px;
+      align-items:center;
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about{
+      padding: 80px 0 40px;
+    }
+    .about-wrap{
+      background: var(--bg-beige-2);
+      border-radius: var(--radius-xl);
+      padding: 46px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow:hidden;
+    }
+    .about-img{
+      border-radius: 24px;
+      overflow:hidden;
+      position: relative;
+      height: 430px;
+      background: #ddd;
+      box-shadow: 0 16px 40px rgba(0,0,0,.10);
+    }
+    .about-img img{ width:100%; height:100%; object-fit: cover; display:block; }
+
+    .about-controls{
+      position:absolute;
+      left: 26px;
+      bottom: 26px;
+      display:flex;
+      gap: 12px;
+      background: rgba(255,255,255,.92);
+      padding: 12px;
+      border-radius: 18px;
+      box-shadow: 0 14px 35px rgba(0,0,0,.12);
+    }
+    .about-controls .ctrl{
+      width: 44px; height:44px;
+      border-radius: 999px;
+      display:grid; place-items:center;
+      font-size: 18px;
+      border: 1px solid rgba(0,0,0,.08);
+    }
+    .about-controls .ctrl.dark{ background: #2B2421; color:#fff; border:none; }
+    .about-controls .ctrl.orange{ background: var(--orange); color:#fff; border:none; }
+
+    .about-stat{
+      position:absolute;
+      right: 26px;
+      bottom: 26px;
+      width: 170px;
+      background: #2B2421;
+      color:#fff;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.18);
+    }
+    .about-stat .num{
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .about-stat .label{
+      opacity:.9;
+      font-weight: 650;
+    }
+
+    .about h3{
+      font-weight: 900;
+      font-size: clamp(28px, 3.2vw, 48px);
+      line-height: 1.05;
+      margin: 6px 0 12px;
+    }
+    .about h3 span{ font-weight: 900; }
+    .about .sub{
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .about-list{
+      list-style:none;
+      padding:0;
+      margin: 18px 0 18px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .about-list li{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      color:#2B2421;
+      font-weight: 600;
+    }
+    .about-list li i{
+      color: var(--orange);
+      background: rgba(232,91,42,.14);
+      width: 26px; height:26px;
+      border-radius: 999px;
+      display:grid; place-items:center;
+      font-size: 14px;
+      flex: 0 0 auto;
+    }
+    .btn-dark-pill{
+      background: #2B2421;
+      color:#fff;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: 800;
+      border:none;
+    }
+    .btn-dark-pill:hover{ filter: brightness(.98); color:#fff; }
+
+    /* ---------- PRICING ---------- */
+    .pricing{
+      padding: 40px 0 80px;
+    }
+    .pricing-wrap{
+      background: var(--bg-beige);
+      border-radius: var(--radius-xl);
+      padding: 56px 46px;
+      box-shadow: var(--shadow-soft);
+    }
+    .pricing h3{
+      font-weight: 950;
+      font-size: clamp(28px, 3.3vw, 54px);
+      line-height: 1.02;
+      margin: 0 0 10px;
+    }
+    .pricing h3 .bold{ font-weight: 950; }
+    .pricing p{ color: var(--muted); max-width: 540px; }
+
+    .pricing-card{
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 16px 45px rgba(0,0,0,.10);
+      border: 1px solid rgba(0,0,0,.04);
+    }
+    .pricing-card.light{ background: #fff; }
+    .pricing-card.dark{
+      background: #2B2421;
+      color:#fff;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 850;
+      font-size: 12px;
+      letter-spacing: .6px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: rgba(0,0,0,.02);
+    }
+    .dark .pill{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+    }
+    .price{
+      font-size: 54px;
+      font-weight: 950;
+      line-height: 1;
+      margin: 12px 0 6px;
+    }
+    .price small{
+      font-size: 14px;
+      font-weight: 650;
+      opacity: .8;
+    }
+    .plan-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 14px 0 18px;
+      padding: 0;
+      list-style:none;
+    }
+    .plan-grid li{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      opacity: .92;
+      font-weight: 600;
+    }
+    .plan-grid li i{
+      margin-top: 2px;
+      color: var(--orange);
+    }
+    .dark .plan-grid li i{ color: #E9C6B2; }
+    .join-btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 850;
+      text-decoration:none;
+    }
+    .join-btn.light{
+      color:#2B2421;
+      border: 1px solid rgba(0,0,0,.12);
+      background: rgba(0,0,0,.02);
+    }
+    .join-btn.orange{
+      color:#fff;
+      background: var(--orange);
+      border:none;
+    }
+
+    /* ---------- GALLERY GRID (Instagram-like) ---------- */
+    .feed{
+      padding: 18px 0 80px;
+    }
+    .feed-head{
+      display:flex;
+      gap: 18px;
+      align-items:center;
+      margin-bottom: 16px;
+    }
+    .avatar{
+      width: 64px; height:64px;
+      border-radius: 999px;
+      background: #fff;
+      display:grid; place-items:center;
+      box-shadow: 0 14px 35px rgba(0,0,0,.10);
+      border: 1px solid rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+    .avatar img{ width: 80%; height: 80%; object-fit: contain; }
+    .feed-title{
+      font-weight: 900;
+      margin: 0;
+      font-size: 26px;
+    }
+    .feed-sub{
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 920px;
+    }
+    .tile{
+      position: relative;
+      border-radius: 0px;
+      overflow:hidden;
+      background: #ddd;
+      aspect-ratio: 1 / 1;
+      border: 1px solid rgba(0,0,0,.06);
+    }
+    .tile img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+      filter: contrast(1.02) saturate(1.02);
+    }
+    .play{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.20));
+    }
+    .play .tri{
+      width: 74px; height: 74px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.38);
+      display:grid; place-items:center;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,.35);
+    }
+    .play .tri i{
+      font-size: 34px;
+      color: rgba(255,255,255,.9);
+      margin-left: 4px;
+      text-shadow: 0 8px 20px rgba(0,0,0,.28);
+    }
+
+    /* Floating WhatsApp & scroll-top */
+    .fab-whatsapp{
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      width: 58px;
+      height: 58px;
+      border-radius: 999px;
+      background: #25D366;
+      color:#fff;
+      display:grid;
+      place-items:center;
+      box-shadow: 0 18px 50px rgba(0,0,0,.22);
+      z-index: 80;
+      text-decoration:none;
+    }
+    .fab-whatsapp i{ font-size: 28px; }
+
+    .fab-top{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      background: #fff;
+      border: 2px solid var(--orange);
+      color: var(--orange);
+      display:grid;
+      place-items:center;
+      box-shadow: 0 18px 50px rgba(0,0,0,.18);
+      z-index: 80;
+      cursor:pointer;
+      opacity: 0;
+      pointer-events:none;
+      transition: opacity .2s ease;
+    }
+    .fab-top.show{ opacity: 1; pointer-events:auto; }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 991.98px){
+      .hero-inner{ padding: 44px 26px; }
+      .hero-card{ min-height: 620px; }
+      .hero-photo{ width: 72%; opacity: .55; }
+      .hero-mini-card{ right: 16px; left: 16px; margin: 0 auto; }
+      .solutions{ border-radius: 0; margin-top: 0; }
+      .about-wrap, .pricing-wrap{ padding: 34px 18px; border-radius: 0; }
+      .about-img{ height: 360px; }
+      .pro-nav-wrap{ padding: 12px 0; }
+      .pro-nav{ border-radius: 22px; }
+    }
+
+    @media (max-width: 575.98px){
+      body{ background: var(--bg-beige-2); }
+      .hero-card{ border-radius: 22px; }
+      .hero-slider-arrow{ display:none; }
+      .price{ font-size: 46px; }
+      .tile{ border-radius: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div class="pro-nav-wrap">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg pro-nav navbar-dark">
+        <a class="brand navbar-brand" href="#">
+          <span class="brand-mark">P</span> PROHEALTH
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="#solutions">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+            <li class="nav-item"><a class="nav-link" href="#buy">Buying & Selling</a></li>
+            <li class="nav-item"><a class="nav-link" href="#listing">Clinics Sales Listing</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+            <li class="nav-item ms-lg-2">
+              <a class="btn btn-orange" href="#contact">Get a Quote →</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-bg"></div>
+
+        <!-- Dummy "hero photo" -->
+        <img class="hero-photo" alt="Hero doctor"
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'%3E%3Cdefs%3E%3CradialGradient id='g' cx='35%25' cy='30%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='.55'/%3E%3Cstop offset='55%25' stop-color='%23ffffff' stop-opacity='.10'/%3E%3Cstop offset='100%25' stop-color='%23000000' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='bg' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23483b35'/%3E%3Cstop offset='1' stop-color='%232b2421'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='800' fill='url(%23bg)'/%3E%3Ccircle cx='820' cy='360' r='320' fill='url(%23g)'/%3E%3Cpath d='M640,720 C760,510 890,470 1020,520 C1090,550 1140,610 1180,690 L1180,800 L640,800 Z' fill='%23ffffff' fill-opacity='.08'/%3E%3Cpath d='M740,620 C790,510 845,465 900,455 C960,445 1030,490 1100,590' stroke='%23ffffff' stroke-opacity='.18' stroke-width='10' fill='none' stroke-linecap='round'/%3E%3Ctext x='760' y='420' font-family='Arial' font-size='22' fill='%23ffffff' fill-opacity='.55'%3EDummy Hero Image%3C/text%3E%3C/svg%3E" />
+
+        <div class="hero-inner">
+          <p class="hero-eyebrow">Personalized Business Support for Doctors and Investors in the UAE</p>
+          <h1>Turn Your Healthcare<br><span class="accent">Vision Into Reality</span></h1>
+          <p class="lead">
+            We help you set up, license, and scale your clinic or healthcare business with clear guidance,
+            expert support, and full regulatory compliance.
+          </p>
+          <a class="btn btn-sand mt-3" href="#contact">Book Consultation →</a>
+        </div>
+
+        <div class="hero-slider-arrow left"><i class="bi bi-chevron-left"></i></div>
+        <div class="hero-slider-arrow right"><i class="bi bi-chevron-right"></i></div>
+
+        <div class="hero-mini-card">
+          <div class="mini-left">
+            <p class="mini-title m-0">Transforming<br>Practices into<br>Power Brands</p>
+          </div>
+          <div class="mini-right">
+            <img alt="Doctor portrait"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cdefs%3E%3CradialGradient id='p' cx='40%25' cy='35%25' r='70%25'%3E%3Cstop offset='0' stop-color='%23ffffff' stop-opacity='.9'/%3E%3Cstop offset='100%25' stop-color='%23e85b2a' stop-opacity='.22'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='240' height='240' fill='%232b2421'/%3E%3Ccircle cx='120' cy='110' r='92' fill='url(%23p)'/%3E%3Ccircle cx='120' cy='94' r='34' fill='%23ffffff' fill-opacity='.85'/%3E%3Cpath d='M60 190c18-34 44-52 60-52s42 18 60 52' fill='%23ffffff' fill-opacity='.8'/%3E%3Ctext x='56' y='226' font-family='Arial' font-size='14' fill='%23ffffff' fill-opacity='.75'%3EDummy Card Image%3C/text%3E%3C/svg%3E" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section id="solutions" class="solutions">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
+        <div>
+          <div class="section-tag"><span class="dot">*</span> OUR SOLUTIONS</div>
+          <h2>Providing the best solutions for your<br><span>healthcare business</span></h2>
+        </div>
+        <a class="btn btn-outline-soft" href="#">View All Service →</a>
+      </div>
+
+      <div class="row g-4 mt-4">
+        <!-- Card 1 -->
+        <div class="col-lg-4">
+          <div class="solution-img-card">
+            <img alt="Clinic licensing"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='600'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23f7f2eb'/%3E%3Cstop offset='1' stop-color='%23cdbEAE'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='900' height='600' fill='url(%23a)'/%3E%3Crect x='60' y='90' width='780' height='420' rx='26' fill='%23ffffff' fill-opacity='.55'/%3E%3Cpath d='M120 380h660' stroke='%232b2421' stroke-opacity='.18' stroke-width='18' stroke-linecap='round'/%3E%3Cpath d='M120 300h480' stroke='%232b2421' stroke-opacity='.18' stroke-width='18' stroke-linecap='round'/%3E%3Cpath d='M120 220h360' stroke='%232b2421' stroke-opacity='.18' stroke-width='18' stroke-linecap='round'/%3E%3Ctext x='110' y='170' font-family='Arial' font-size='34' fill='%232b2421' fill-opacity='.55'%3EClinic Documents%3C/text%3E%3C/svg%3E" />
+            <div class="solution-icon"><i class="bi bi-bullseye"></i></div>
+            <div class="solution-bottom">
+              <h4>Clinic Licensing &<br>Compliance</h4>
+              <p>We help you get your clinic licensed with DHA, MOH, or DOH. No guesswork. Just a clear process from start to finish.</p>
+              <a href="#">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-lg-4">
+          <div class="solution-img-card">
+            <img alt="Professional licensing"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='600'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23efe8de'/%3E%3Cstop offset='1' stop-color='%23f7f2eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='900' height='600' fill='url(%23b)'/%3E%3Crect x='70' y='100' width='760' height='400' rx='26' fill='%23ffffff' fill-opacity='.55'/%3E%3Ccircle cx='260' cy='270' r='80' fill='%23e85b2a' fill-opacity='.25'/%3E%3Cpath d='M420 340c50-120 140-170 280-170' stroke='%232b2421' stroke-opacity='.18' stroke-width='18' fill='none' stroke-linecap='round'/%3E%3Cpath d='M420 400c60-90 150-125 280-125' stroke='%232b2421' stroke-opacity='.18' stroke-width='18' fill='none' stroke-linecap='round'/%3E%3Ctext x='110' y='170' font-family='Arial' font-size='34' fill='%232b2421' fill-opacity='.55'%3ELicense Application%3C/text%3E%3C/svg%3E" />
+            <div class="solution-icon"><i class="bi bi-graph-up"></i></div>
+            <div class="solution-bottom">
+              <h4>Professional Licensing</h4>
+              <p>Doctors, nurses, technicians, we assist healthcare professionals in securing the right license to work legally in the UAE.</p>
+              <a href="#">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-lg-4">
+          <div class="solution-img-card">
+            <img alt="Clinic design"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='600'%3E%3Cdefs%3E%3ClinearGradient id='c' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23f7f2eb'/%3E%3Cstop offset='1' stop-color='%23efe8de'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='900' height='600' fill='url(%23c)'/%3E%3Crect x='80' y='110' width='740' height='380' rx='26' fill='%23ffffff' fill-opacity='.55'/%3E%3Crect x='120' y='160' width='300' height='200' rx='18' fill='%232b2421' fill-opacity='.10'/%3E%3Crect x='450' y='160' width='320' height='80' rx='18' fill='%23e85b2a' fill-opacity='.22'/%3E%3Crect x='450' y='270' width='320' height='90' rx='18' fill='%232b2421' fill-opacity='.10'/%3E%3Ctext x='120' y='420' font-family='Arial' font-size='30' fill='%232b2421' fill-opacity='.55'%3EReception Layout%3C/text%3E%3C/svg%3E" />
+            <div class="solution-icon" style="color:#fff;background:rgba(0,0,0,.0)"></div>
+            <div class="solution-bottom orange">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                <div style="width:56px;height:56px;border-radius:14px;background:rgba(255,255,255,.16);display:grid;place-items:center;">
+                  <i class="bi bi-rocket-takeoff" style="font-size:24px;color:#fff;"></i>
+                </div>
+                <h4 class="m-0" style="font-size:22px;font-weight:900;color:#1d1410;">Clinic Design & Fitout</h4>
+              </div>
+              <p>We turn your clinic plan into a fully functional space, approved and ready for patient care. From layout to furnishing and necessary equipment, we manage it all.</p>
+              <a href="#" style="color:#1d1410;">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-wrap">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <div class="about-img">
+              <img alt="About"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'%3E%3Cdefs%3E%3ClinearGradient id='d' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='1' stop-color='%23efe8de'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='800' fill='url(%23d)'/%3E%3Crect x='80' y='100' width='1040' height='600' rx='34' fill='%23ffffff' fill-opacity='.55'/%3E%3Crect x='180' y='190' width='820' height='320' rx='22' fill='%23e85b2a' fill-opacity='.18'/%3E%3Cpath d='M220 540h760' stroke='%232b2421' stroke-opacity='.16' stroke-width='22' stroke-linecap='round'/%3E%3Cpath d='M220 590h520' stroke='%232b2421' stroke-opacity='.16' stroke-width='22' stroke-linecap='round'/%3E%3Ctext x='200' y='170' font-family='Arial' font-size='34' fill='%232b2421' fill-opacity='.55'%3EAnalytics & Growth%3C/text%3E%3C/svg%3E" />
+              <div class="about-controls">
+                <div class="ctrl dark"><i class="bi bi-arrow-left"></i></div>
+                <div class="ctrl orange"><i class="bi bi-arrow-right"></i></div>
+              </div>
+              <div class="about-stat">
+                <div class="num">450+</div>
+                <div class="label">Trusted by Clinics</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="section-tag"><span class="dot">*</span> ABOUT PROHEALTH</div>
+            <h3>We empower healthcare professionals to achieve real-world success through our comprehensive <span>services.</span></h3>
+            <p class="sub">At ProHealth, our comprehensive end-to-end healthcare services are designed to meet and exceed all of your business needs.</p>
+
+            <hr style="opacity:.12">
+
+            <ul class="about-list">
+              <li><i class="bi bi-check"></i> Healthcare Licensing</li>
+              <li><i class="bi bi-check"></i> New Clinic Business Setup</li>
+              <li><i class="bi bi-check"></i> Acquisition Partner to Buy / Sell Clinics</li>
+              <li><i class="bi bi-check"></i> Revenue Cycle Management</li>
+              <li><i class="bi bi-check"></i> Coding & Claim Submissions</li>
+              <li><i class="bi bi-check"></i> Insurance Empanelment</li>
+              <li><i class="bi bi-check"></i> Healthcare Recruitment</li>
+              <li><i class="bi bi-check"></i> Digital Marketing</li>
+              <li><i class="bi bi-check"></i> Equipments</li>
+              <li><i class="bi bi-check"></i> Internship Courses</li>
+            </ul>
+
+            <a class="btn btn-dark-pill mt-2" href="#">More about →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing">
+    <div class="container">
+      <div class="pricing-wrap">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <div class="section-tag"><span class="dot">*</span> PRICING PLANS</div>
+            <h3>Branding for your Clinic<br><span class="bold">affordable pricing plans</span><br>choose now</h3>
+            <p>
+              We don’t believe in one-size-fits-all packages. Every clinic, investor, and healthcare professional we work
+              with has unique goals and our pricing reflects that.
+            </p>
+            <a class="btn btn-dark-pill mt-2" href="#">Let’s Build One Together →</a>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="pricing-card light mb-4">
+              <span class="pill">STANDARD PLAN</span>
+              <div class="d-flex align-items-end gap-3 flex-wrap">
+                <div class="price">2999</div>
+                <div style="padding-bottom:10px;font-weight:700;opacity:.85;">AED/Month</div>
+              </div>
+              <a class="join-btn light" href="#">Join the Plan <i class="bi bi-arrow-right"></i></a>
+
+              <hr style="opacity:.12">
+
+              <ul class="plan-grid">
+                <li><i class="bi bi-check-circle"></i> Facilitating Camps</li>
+                <li><i class="bi bi-check-circle"></i> Authority Coordination and Approvals</li>
+                <li><i class="bi bi-check-circle"></i> THREE camps per month</li>
+                <li><i class="bi bi-check-circle"></i> Packing Essentials</li>
+              </ul>
+            </div>
+
+            <div class="pricing-card dark">
+              <span class="pill">ADVANCED PLAN</span>
+              <div class="d-flex align-items-end gap-3 flex-wrap">
+                <div class="price">3999</div>
+                <div style="padding-bottom:10px;font-weight:700;opacity:.85;">AED/month</div>
+              </div>
+              <a class="join-btn orange" href="#">Join the Plan <i class="bi bi-arrow-right"></i></a>
+
+              <hr style="opacity:.12;border-color:rgba(255,255,255,.12)">
+
+              <ul class="plan-grid">
+                <li><i class="bi bi-check-circle"></i> Facilitating Camps</li>
+                <li><i class="bi bi-check-circle"></i> Authority Coordination and Approvals</li>
+                <li><i class="bi bi-check-circle"></i> FIVE camps per month</li>
+                <li><i class="bi bi-check-circle"></i> Packing Essentials</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEED / GALLERY (grid like screenshot) -->
+  <section id="gallery" class="feed">
+    <div class="container">
+      <div class="feed-head">
+        <div class="avatar" aria-hidden="true">
+          <img alt="ProHealth logo"
+               src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Crect width='180' height='180' rx='90' fill='%23ffffff'/%3E%3Cpath d='M58 92c18-24 46-35 75-23 8 3 14 7 19 12' stroke='%23e85b2a' stroke-width='14' stroke-linecap='round' fill='none'/%3E%3Cpath d='M60 98h42' stroke='%23e85b2a' stroke-width='14' stroke-linecap='round'/%3E%3Cpath d='M82 78v42' stroke='%23e85b2a' stroke-width='14' stroke-linecap='round'/%3E%3Ctext x='42' y='142' font-family='Arial' font-size='20' fill='%232b2421' fill-opacity='.75'%3EPROHEALTH%3C/text%3E%3C/svg%3E"/>
+        </div>
+        <div>
+          <p class="feed-title">prohealthuae</p>
+          <p class="feed-sub">
+            Trusted Healthcare Management Services | 7+ Years Experience, 650+ Clients, Expertise of DHA, MOH, DOH |
+            Skilled Team | Insurance Experts & Funding
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-0">
+        <!-- 8 tiles to match screenshot grid vibe -->
+        <!-- Each tile uses a dummy image + play overlay -->
+        <div class="col-6 col-lg-3">
+          <div class="tile">
+            <img alt="Reel tile 1"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cdefs%3E%3ClinearGradient id='t1' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%232b2421'/%3E%3Cstop offset='1' stop-color='%23e85b2a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='900' height='900' fill='url(%23t1)'/%3E%3Crect x='90' y='110' width='720' height='560' rx='28' fill='%23ffffff' fill-opacity='.12'/%3E%3Ctext x='120' y='760' font-family='Arial' font-size='44' fill='%23ffffff' fill-opacity='.9'%3ETRAINED TO HEAL%3C/text%3E%3Ctext x='120' y='820' font-family='Arial' font-size='32' fill='%23ffffff' fill-opacity='.85'%3ENOT TO BUILD A CLINIC%3C/text%3E%3C/svg%3E"/>
+            <div class="play"><div class="tri"><i class="bi bi-play-fill"></i></div></div>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="tile">
+            <img alt="Reel tile 2"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Crect width='900' height='900' fill='%23eae2d8'/%3E%3Crect x='90' y='110' width='720' height='560' rx='28' fill='%232b2421' fill-opacity='.12'/%3E%3Ctext x='120' y='180' font-family='Arial' font-size='44' fill='%232b2421' fill-opacity='.85'%3E3 THINGS EVERY CLINIC%3C/text%3E%3Ctext x='120' y='240' font-family='Arial' font-size='44' fill='%23e85b2a'%3EFLOOR PLAN NEEDS%3C/text%3E%3C/svg%3E"/>
+            <div class="play"><div class="tri"><i class="bi bi-play-fill"></i></div></div>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="tile">
+            <img alt="Reel tile 3"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Crect width='900' height='900' fill='%23d8c8b8'/%3E%3Crect x='120' y='220' width='660' height='320' rx='28' fill='%232b2421' fill-opacity='.18'/%3E%3Ctext x='120' y='520' font-family='Arial' font-size='66' fill='%232b2421' fill-opacity='.75'%3ECLINIC%3C/text%3E%3C/svg%3E"/>
+            <div class="play"><div class="tri"><i class="bi bi-play-fill"></i></div></div>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="tile">
+            <img alt="Reel tile 4"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Crect width='900' height='900' fill='%23f7f2eb'/%3E%3Ctext x='120' y='190' font-family='Arial' font-size='40' fill='%232b2421' fill-opacity='.8'%3EONE WRONG DISPOSAL%3C/text%3E%3Ctext x='120' y='250' font-family='Arial' font-size='40' fill='%232b2421' fill-opacity='.8'%3ECAN RISK A LOT.%3C/text%3E%3Ctext x='120' y='320' font-family='Arial' font-size='38' fill='%23e85b2a'%3EMORE THAN YOU THINK%3C/text%3E%3C/svg%3E"/>
+            <div class="play"><div class="tri"><i class="bi bi-play-fill"></i></div></div>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="tile">
+            <img alt="Reel tile 5"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Crect width='900' height='900' fill='%23ffffff'/%3E%3Ccircle cx='450' cy='480' r='190' fill='%23e85b2a' fill-opacity='.85'/%3E%3Ctext x='120' y='200' font-family='Georgia' font-size='54' fill='%232b2421' fill-opacity='.8'%3EMarketing isn't vanity.%3C/text%3E%3C/svg%3E"/>
+            <div class="play"><div class="tri"><i class="bi bi-play-fill"></i></div></div>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="tile">
+            <img alt="Reel tile 6"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cdefs%3E%3CradialGradient id='diya' cx='50%25' cy='40%25' r='70%25'%3E%3Cstop offset='0' stop-color='%23ffcf7a'/%3E%3Cstop offset='100%25' stop-color='%232b2421'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='900' height='900' fill='url(%23diya)'/%3E%3Ctext x='120' y='220' font-family='Arial' font-size='64' fill='%23ffffff' fill-opacity='.9'%3EHappy%3C/text%3E%3Ctext x='120' y='290' font-family='Arial' font-size='74' fill='%23ffffff' fill-opacity='.95'%3EDiwali%3C/text%3E%3C/svg%3E"/>
+            <div class="play"><div class="tri"><i class="bi bi-play-fill"></i></div></div>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="tile">
+            <img alt="Reel tile 7"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Crect width='900' height='900' fill='%230b0b0b'/%3E%3Ctext x='120' y='500' font-family='Arial' font-size='40' fill='%23ffffff' fill-opacity='.35'%3EVideo Placeholder%3C/text%3E%3C/svg%3E"/>
+            <div class="play"><div class="tri"><i class="bi bi-play-fill"></i></div></div>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="tile">
+            <img alt="Reel tile 8"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Crect width='900' height='900' fill='%23efe8de'/%3E%3Ctext x='120' y='220' font-family='Arial' font-size='58' fill='%232b2421' fill-opacity='.8'%3EWHY CLINICS%3C/text%3E%3Ctext x='120' y='290' font-family='Arial' font-size='58' fill='%23e85b2a'%3EFAIL APPROVAL%3C/text%3E%3C/svg%3E"/>
+            <div class="play"><div class="tri"><i class="bi bi-play-fill"></i></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp -->
+  <a class="fab-whatsapp" href="#" aria-label="WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <!-- Scroll to top -->
+  <button class="fab-top" id="toTop" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const btn = document.getElementById('toTop');
+    const toggle = () => {
+      if (window.scrollY > 500) btn.classList.add('show');
+      else btn.classList.remove('show');
+    };
+    toggle();
+    window.addEventListener('scroll', toggle);
+    btn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+  </script>
+</body>
+</html>
